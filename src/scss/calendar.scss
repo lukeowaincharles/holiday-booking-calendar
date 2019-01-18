@@ -1,0 +1,45 @@
+
+.calendar {
+    &__container {
+        margin: 3.2rem;
+    }
+    table {
+        width: 100%;
+        box-sizing: border-box;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    td {
+        border: 1px solid #ccc;
+        padding: .8rem 1.8rem;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .currentDay {
+        color: #12e9c5;
+        &:active,
+        &:hover {
+            background-color: #12e9c5 !important;
+            color: #fff !important;
+        }
+    }
+
+    .currentMonth {
+        height: 4rem;
+    }
+
+    .days {
+        font-size: 1rem;
+        transition: background-color, color .3s ease-in-out;
+        cursor: pointer;
+        &:active,
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+}

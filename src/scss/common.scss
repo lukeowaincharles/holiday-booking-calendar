@@ -1,0 +1,95 @@
+body {
+    font-size: 16px;
+    font-weight: normal;
+    position: relative;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $color-primary-1;
+    font-family: $body-font;
+    animation-duration: .75s;
+    -webkit-animation-duration: .75s;
+    animation-delay: .4s;
+    -webkit-animation-delay: .4s;
+    color: #FFFFFF;
+}
+
+main {
+    margin: 1.7rem;
+}
+
+#clock {
+    text-align: right;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $body-font;
+    font-weight: normal;
+}
+
+p {
+    line-height: 1.55;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: color 400ms;
+
+    &:hover,
+    &:active {
+        color: $color-primary-6;
+    }
+}
+
+.is-open {
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.section-margin {
+    margin: 0.625rem 1.875rem;
+
+    &_sides {
+        margin: 0 0.9375rem;
+
+        @include mq('desktop') {
+            margin: 0 4.375rem;
+        }
+    }
+}
+
+.text-align__left {
+    text-align: left;
+}
+
+.text-align__center {
+    text-align: center;
+}
+
+.width-restrict__medium {
+    width: 300px;
+
+    @include mq('tablet') {
+        width: 600px;
+    }
+}
+
+.title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+

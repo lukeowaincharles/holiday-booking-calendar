@@ -1,0 +1,55 @@
+$breakpoints: ("phone": 400px,
+"phone-wide": 480px,
+"phablet": 560px,
+"tablet-small": 640px,
+"tablet": 768px,
+"desktop": 992px,
+"desktop-l": 1200px,
+"desktop-xl": 1440px,
+"desktop-xxl": 1890px,
+"desktop-sw": 2300px);
+
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+
+        @if $type==max {
+            $width: $width - 1px;
+        }
+
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+// maintain corrext ratios for images/background images
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+    $padding: unquote(($y / $x) * 100 + '%');
+
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    }
+
+    @else {
+        padding-top: $padding;
+    }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+@mixin hardware($backface: true, $perspective: 1000) {
+    @if $backface {
+        backface-visibility: hidden;
+    }
+
+    perspective: $perspective;
+}
